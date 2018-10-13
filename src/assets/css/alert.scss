@@ -1,0 +1,26 @@
+.alert-success,
+.alert-error,
+.alert-warning,
+.alert-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.alert-success {
+  background: rgb(28, 184, 65); /* this is a green */
+}
+
+.alert-error {
+  background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.alert-warning {
+  background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.alert-secondary {
+  background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+ 

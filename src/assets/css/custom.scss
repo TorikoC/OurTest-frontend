@@ -1,0 +1,13 @@
+.link {
+  text-decoration: none;
+  transition: color 0.3s, background 0.3s;
+  &:visited {
+    color: blue;
+  }
+  &:hover {
+    color:  orange;
+  }
+  &:active {
+    color: chocolate;
+  }
+}

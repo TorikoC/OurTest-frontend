@@ -1,0 +1,26 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } 
+  to {
+    transform: rotate(360deg)
+  }
+}
+
+.loading {
+  display: inline-block;
+  position: absolute;
+  width: 0px;
+  border-top: 20px solid rgb(20, 20, 214);
+  border-bottom: 20px solid rgb(10, 131, 201);
+  border-left: 20px solid rgb(90, 20, 32);
+  border-right: 20px solid rgb(23, 141, 52);
+  left: 50%;
+  top: 20%;
+  // transform: translateY(-50%);
+  color: red;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

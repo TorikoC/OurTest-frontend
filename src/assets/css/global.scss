@@ -1,0 +1,28 @@
+label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+textarea {
+  resize: none;
+}
+
+.form-group + .form-group {
+  margin-top: 1em;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  word-break: break-word;
+}
+
+.highlight {
+  .title {
+    color: rgb(224, 135, 17);
+  }
+}
