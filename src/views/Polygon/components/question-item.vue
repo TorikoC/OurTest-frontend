@@ -9,7 +9,11 @@
         <ul v-if="data.type === 'sc'">
           <li v-for="(option,index) in data.options" :key="index">
             <div :class="option.true ? 'checked' : ''" class="flex-row option" style="width: 80%">
-              <label for="" class="flex-1 option-label" :title="option.desc" >{{ `${index + 1}. ${option.desc}` }}</label>
+              <label
+                for=""
+                class="flex-1 option-label"
+                :title="option.desc" >{{ `${index + 1}. ${option.desc}` }}
+              </label>
               <input type="radio" name="" id=""  :checked="option.true" disabled>
             </div>
           </li>

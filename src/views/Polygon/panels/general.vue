@@ -27,6 +27,7 @@ export default {
       const form = event.target;
       const formData = new FormData(form);
       const data = {};
+      // eslint-disable-next-line
       for (const [key, value] of formData) {
         data[key] = value;
       }

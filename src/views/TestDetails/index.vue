@@ -81,7 +81,7 @@ export default {
         this.test = resp.data;
         this.loading = false;
       })
-      .catch((err) => {
+      .catch(() => {
         this.loading = false;
       });
   },
@@ -105,12 +105,7 @@ export default {
         headers: {
           Authorization: `Bearer ${jwt}`,
         },
-      })
-        .then((resp) => {
-        })
-        .catch((err) => {
-          alert(err.response.data);
-        });
+      });
     },
   },
 };

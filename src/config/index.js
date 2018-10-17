@@ -1,6 +1,6 @@
-const host = 'http://localhost:3001';
+const host = 'http://localhost:3001/api';
 
-module.exports = {
+export default {
   comments: `${host}/comments`,
   login: `${host}/login`,
   users: `${host}/users`,

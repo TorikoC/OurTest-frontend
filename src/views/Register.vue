@@ -36,7 +36,7 @@ export default {
       const form = event.target;
       const formData = new FormData(form);
       if (!this.checkPassword(formData)) {
-        alert('password did not match.');
+        window.alert('password did not match.');
         return;
       }
       this.$axios.post(this.$url.users, formData, {
@@ -45,7 +45,7 @@ export default {
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJlbWFpbCI6ImFiY0AxMjMuY29tIiwiaWF0IjoxNTM5MDcxMDgwfQ.she24SK0ONz3BTspx0vwJ8Cv_KLi6Ql9Cl1cWwxhToo',
         },
       })
-        .then((resp) => {
+        .then(() => {
           this.$router.push('/login');
         })
         .catch((err) => {
@@ -55,7 +55,6 @@ export default {
     checkPassword(formData) {
       const password1 = formData.get('password');
       const password2 = formData.get('password2');
-      console.log(password1, password2);
       return password1 === password2;
     },
   },

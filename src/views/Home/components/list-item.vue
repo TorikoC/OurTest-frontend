@@ -34,8 +34,7 @@ export default {
         const els = document.getElementsByClassName('title');
         for (let i = 0; i < els.length; i += 1) {
           const text = this.data.title;
-          const newText = text.replace(value, match => `<span style="color: yellow">${match}</span>`);
-          els[i].innerHTML = newText;
+          els[i].innerHTML = text.replace(value, match => `<span style="color: yellow">${match}</span>`);
         }
       } else {
         const els = document.getElementsByClassName('title');
@@ -55,7 +54,7 @@ export default {
   padding: 1em;
   transition: box-shadow 0.3s;
   &:hover {
-    box-shadow: 2px 2px 10px 0px $gray;
+    box-shadow: 2px 2px 10px 0 $gray;
   }
 }
 

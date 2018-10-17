@@ -60,7 +60,10 @@
         <div class="flex-row">
           <button class="pure-button" @click="next(currentIndex - 1)">prev</button>
           <button class="pure-button" @click="next(currentIndex + 1)">next</button>
-          <button style="margin-left: auto;" class="pure-button pure-button-primary" @click.prevent="submit">Sumbit</button>
+          <button
+            style="margin-left: auto;"
+            class="pure-button pure-button-primary"
+            @click.prevent="submit">Sumbit</button>
         </div>
       </main>
       <footer class="flex-row margin-top-1 margin-bottom-1">
@@ -136,7 +139,7 @@ export default {
         this.tickHandler = setInterval(this.countdown, 1000);
         this.loaded = true;
       })
-      .catch((err) => {
+      .catch(() => {
         this.loaded = true;
       });
   },
@@ -169,7 +172,6 @@ export default {
         }
         case 'bf': {
           const el = document.getElementById('bf-answer');
-          const pager = document.getElementById(`pager-${this.currentIndex + 1}`);
           const reply = el.value;
           this.replys[this.currentIndex] = reply;
           this.currentIndex = newIndex;
@@ -205,17 +207,18 @@ export default {
         },
       })
         .then((resp) => {
+          console.log(resp);
           this.$bus.$emit('changeMode', 'normal');
           setTimeout(() => {
             this.$router.replace('/profile');
           }, 1000);
         })
         .catch((err) => {
-          alert('something interesting happen.');
+          window.alert(err.message);
         });
     },
     exit() {
-      const yes = confirm('you will lose your changes, are you sure to exit?');
+      const yes = window.confirm('you will lose your changes, are you sure to exit?');
       if (yes) {
         this.$bus.$emit('changeMode', 'normal');
         this.$router.replace('/');

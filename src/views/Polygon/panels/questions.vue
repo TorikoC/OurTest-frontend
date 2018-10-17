@@ -24,7 +24,11 @@
         <div class="pure-control-group">
           <label for="sc-option">Option</label>
           <textarea name="sc-option" id="sc-option" cols="60" rows="3"></textarea>
-          <button class="pure-button" style="margin-left: 1em" @click.prevent="addOption">Add Option</button>
+          <button
+            class="pure-button"
+            style="margin-left: 1em" @click.prevent="addOption">
+            Add Option
+          </button>
         </div>
         <hr>
         <span class="pure-form-message-inline">
@@ -33,7 +37,11 @@
         <ul>
           <li v-for="(option, index) in singleChoiceQuestion.options" :key="option.desc">
             <div class="option flex-row">
-              <label :for="'option' + index" class="flex-1" :title="option.desc">{{ option.desc }}</label>
+              <label
+                :for="'option' + index"
+                class="flex-1" :title="option.desc">
+                {{ option.desc }}
+              </label>
               <input
                 class="align-self: center;"
                 :checked="index === singleChoiceQuestion.correctIndex"
@@ -65,15 +73,23 @@
         <button v-else class="pure-button" @click.prevent="submit">Add Question</button>
       </div>
       <div class="pure-controls">
-        <button style="width: 10em" class="pure-button pure-button-primary" @click.prevent="next('general')">Back</button>
-        <button style="width: 10em; margin-left: 1em" class="pure-button pure-button-primary" @click.prevent="next('publish')">Save & Next</button>
+        <button
+          style="width: 10em"
+          class="pure-button pure-button-primary" @click.prevent="next('general')">
+          Back
+        </button>
+        <button
+          style="width: 10em; margin-left: 1em"
+          class="pure-button pure-button-primary" @click.prevent="next('publish')">
+          Save & Next
+        </button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import QuestionItem from '../components/question-item';
+import QuestionItem from '../components/question-item.vue';
 
 export default {
   components: {
@@ -115,7 +131,7 @@ export default {
         this.singleChoiceQuestion.correctIndex = index;
       }
     },
-    addOption(event) {
+    addOption() {
       const elScOption = document.getElementById('sc-option');
       const desc = elScOption.value;
       elScOption.value = '';
@@ -128,7 +144,7 @@ export default {
     changeType(event) {
       this.type = event.target.value;
     },
-    submit(event) {
+    submit() {
       const formData = this.getFormData(this.type);
       this.questions.push(formData);
       localStorage.setItem('questions', JSON.stringify(this.questions));
@@ -175,15 +191,15 @@ export default {
     },
 
     getFormData(type) {
-      debugger;
       switch (this.type) {
         case 'sc': {
           const elDesc = document.getElementById('sc-desc');
           const desc = elDesc.value;
           if (desc.trim() === '') {
-            return;
+            return {};
           }
           elDesc.value = '';
+          // eslint-disable-next-line
           this.singleChoiceQuestion.options.forEach(o => o.true = false);
           this.singleChoiceQuestion.options[this.singleChoiceQuestion.correctIndex].true = true;
           const result = {
@@ -199,12 +215,12 @@ export default {
           const elAnswer = document.getElementById('bf-answer');
           const desc = elDesc.value;
           if (desc.trim() === '') {
-            return;
+            return {};
           }
           elDesc.value = '';
           const answer = elAnswer.value;
           if (answer.trim() === '') {
-            return;
+            return {};
           }
           elAnswer.value = '';
           const result = {
@@ -214,9 +230,12 @@ export default {
           };
           return result;
         }
+        default: {
+          break;
+        }
       }
+      return {};
     },
-
   },
 };
 </script>

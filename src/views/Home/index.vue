@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import ListItem from './components/list-item';
+import ListItem from './components/list-item.vue';
 
 export default {
   components: {
@@ -23,16 +23,20 @@ export default {
   },
   computed: {
     filterdTests() {
+      // eslint-disable-next-line
       this.reg = this.keyword ? new RegExp(this.keyword, 'ig') : '';
       if (!this.reg) {
+        // eslint-disable-next-line
         this.noData = false;
         return this.tests;
       }
       const results = this.tests.filter(obj => this.reg.test(obj.title));
       if (results.length === 0) {
+        // eslint-disable-next-line
         this.noData = true;
         return [];
       }
+      // eslint-disable-next-line
       this.noData = false;
       return results;
     },

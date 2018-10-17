@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import General from './panels/general';
-import Questions from './panels/questions';
-import Publish from './panels/publish';
+import General from './panels/general.vue';
+import Questions from './panels/questions.vue';
+import Publish from './panels/publish.vue';
 
 export default {
   components: {

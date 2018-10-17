@@ -28,7 +28,7 @@ export default {
     }, 3000);
   },
   methods: {
-    close(event) {
+    close() {
       this.show = false;
     },
   },
