@@ -5,4 +5,5 @@ export default {
   login: `${host}/login`,
   users: `${host}/users`,
   tests: `${host}/tests`,
+  sendmail: `${host}/sendmail`,
 };

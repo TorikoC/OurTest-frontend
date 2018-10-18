@@ -52,7 +52,7 @@ export default {
       this.$emit('next', { type });
     },
     publish() {
-      axios.post('http://localhost:3001/tests/', this.paper)
+      axios.post(this.$url.tests, this.paper)
         .then(() => {
           this.success = true;
         })

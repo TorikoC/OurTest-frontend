@@ -12,7 +12,12 @@
       </div>
     </div>
     <div style="align-self: center;">
-      <router-link class="link" :to="'/tests/' + data.title">see more</router-link>
+      <router-link
+        class="link"
+        :to="'/tests/' + encodeURIComponent(data.title)"
+      >
+        see more
+      </router-link>
     </div>
   </div>
 </template>

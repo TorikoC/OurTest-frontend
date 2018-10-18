@@ -12,8 +12,12 @@
               <router-link to="/Polygon" class="pure-menu-link">Polygon</router-link>
             </li>
             <li class="pure-menu-item" style="margin-left: auto;">
-              <div v-if="login" class="flex-row">
-                <router-link to="/Profile" class="pure-menu-link">Profile</router-link>
+              <div v-if="login" class="flex-row" style="">
+                <div class="relative">
+                  <router-link class="pure-menu-link" to="/profile">
+                    <img src="logo.png" alt="logo" style="height: 14px;">
+                  </router-link>
+                </div>
                 <a href="#" class="pure-menu-link" @click="logout">logout</a>
               </div>
               <div v-else>
